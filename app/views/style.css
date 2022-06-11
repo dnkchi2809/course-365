@@ -1,0 +1,61 @@
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+    display: none;
+}
+
+.sm-img-teacher {
+    background-color: red;
+    width: 40px;
+    height: 40px;
+    background-size: cover
+}
+
+.new-price {
+    font-size: medium;
+    font-weight: bold;
+}
+
+.old-price {
+    font-size: medium;
+    text-decoration-line: line-through;
+    color: dimgray;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.edit-i:hover {
+    color: green;
+}
+
+.delete-i:hover {
+    color: red;
+}
+
+#add-btn {
+    position: fixed;
+    border: 0;
+    background-color: -1;
+    margin-top: 34%;
+    /*34*/
+    margin-left: 91%;
+}
+
+.modal-dialog {
+    max-width: 75%;
+    /* New width for default modal */
+}
+
+::file-selector-button {
+    display: none;
+}
+
+.dollarspan {
+    float: right;
+    margin-left: 78%;
+    margin-top: 3%;
+    position:absolute;
+    z-index: 2;
+    color:grey;
+}

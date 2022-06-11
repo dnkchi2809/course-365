@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Course 365 - Learning with unlimited!</title>
+
+    <!-- Nhúng các thư viện BS4 & jQuery, awesome font -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Các file css và js tự định nghĩa thêm -->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body onload="onPageIndexLoad()">
+    <!-- 1. Header - Navbar menu -->
+    <div class="container-fluid" id="header-div">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+            <a class="navbar-brand" href="index.html"><img src="images/Ionic_logo.png"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Browse course
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Web Development</a>
+                            <a class="dropdown-item" href="#">Mobile App</a>
+                            <!--<div class="dropdown-divider"></div>-->
+                            <a class="dropdown-item" href="#">Desktop App</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            About Us
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Vision & Misson</a>
+                            <a class="dropdown-item" href="#">Team</a>
+                            <a class="dropdown-item" href="#">Contact Us</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" style="font-family: FontAwesome;" type="search"
+                        placeholder="&#xf002;  Search Course" aria-label="Search">
+                    <i style="position: absolute" class="fa-solid fa-magnifying-glass"></i>
+                    <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+    <!-- 2. Slide body -->
+    <div id="slide-body-div" class="bg-info" style="display:block;">
+        <div class="row align-items-center mt-5">
+            <div class="col-1">
+            </div>
+            <div class="col-6 mx-auto">
+                <div class="container-fluid">
+                    <div class="row">
+                        <p class="text-white" style="font-size: 280%; font-weight: 500;">Welcome to Ionic
+                            Course365 Learning Center</p>
+                    </div>
+                    <div class="row">
+                        <p class="text-light" style="font-size: 110%;">
+                            Ionic Course365 is an online learning and teaching marketplace with over 5000
+                            courses and 1 milion students. Instructor and expertly crafted courses, designed for
+                            the morden students and entrepreneur.
+                        </p>
+                    </div>
+                    <div class="row">
+                        <button class="btn btn-warning btn-lg" style="width: 200px;">Browse Course</button>
+                        <button class="ml-4 btn btn-light btn-lg" style="width: 250px">Become an
+                            Instructor</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="w-75 mt-3">
+                    <img class="mw-100" src="images/ionic-207965.png" alt="Los Angeles">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Courses content -->
+    <!-------Div Recommended---------------------------------------------------------------------------------------->
+    <div class="container" id="course-content-div">
+        <div class="container mt-5" id="recommended-div">
+            <div class="row">
+                <div class="col-6">
+                    <h2>Recommended to you<h2>
+                </div>
+                <div class="col-6 text-right align-self-center">
+                    <a href="courses-list.html" class="text-primary">See all courses...</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="row justify-content-center">
+                        <div class="card" style="width: 16rem;">
+                            <img class="card-img-top" src="images/courses/course-angular.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h6 class="card-title text-primary">How to easily create a website with Angular</h6>
+                                <p class="card-text">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <i class="far fa-clock"></i>
+                                    </div>
+                                    <div class="col-4 pr-0 text-left">
+                                        3h 56m
+                                    </div>
+                                    <div class="col-6 pl-0 text-left">
+                                        Beginer
+                                    </div>
+                                </div>
+                                </p>
+                                <p class="card-text">
+                                <div class="float-left new-price">$600</div>
+                                <div class="float-left ml-2 old-price">$750</div>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-3">
+                                        <div class="rounded-circle sm-img-teacher"
+                                            style="background-image: url(images/teacher/morris_mccoy.jpg);">
+                                        </div>
+                                    </div>
+                                    <div class="col-7 pl-2">
+                                        Morris Mccoy
+                                    </div>
+                                    <div class="col-2">
+                                        <i class="far fa-bookmark"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="row justify-content-center">
+                        <div class="card" style="width: 16rem;">
+                            <img class="card-img-top" src="images/courses/course-python.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h6 class="card-title text-primary">The Python Course: build web application</h6>
+                                <p class="card-text">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <i class="far fa-clock"></i>
+                                    </div>
+                                    <div class="col-4 pr-0 text-left">
+                                        4h 30m
+                                    </div>
+                                    <div class="col-6 pl-0 text-left">
+                                        Advanced
+                                    </div>
+                                </div>
+                                </p>
+                                <p class="card-text">
+                                <div class="float-left new-price">$900</div>
+                                <div class="float-left ml-2 old-price">$1050</div>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-3">
+                                        <div class="rounded-circle sm-img-teacher"
+                                            style="background-image: url(images/teacher/claire_robertson.jpg);">
+                                        </div>
+                                    </div>
+                                    <div class="col-7 pl-2">
+                                        Claire Robertson
+                                    </div>
+                                    <div class="col-2">
+                                        <i class="far fa-bookmark"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="row justify-content-center">
+                        <div class="card" style="width: 16rem;">
+                            <img class="card-img-top" src="images/courses/course-graphql.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h6 class="card-title text-primary">GraphQL: introduction to graphQL for beginners</h6>
+                                <p class="card-text">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <i class="far fa-clock"></i>
+                                    </div>
+                                    <div class="col-4 pr-0 text-left">
+                                        2h 15m
+                                    </div>
+                                    <div class="col-6 pl-0 text-left">
+                                        Intermediate
+                                    </div>
+                                </div>
+                                </p>
+                                <p class="card-text">
+                                <div class="float-left new-price">$650</div>
+                                <div class="float-left ml-2 old-price">$850</div>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-3">
+                                        <div class="rounded-circle sm-img-teacher"
+                                            style="background-image: url(images/teacher/ted_hawkins.jpg);">
+                                        </div>
+                                    </div>
+                                    <div class="col-7 pl-2">
+                                        Ted Hawkins
+                                    </div>
+                                    <div class="col-2">
+                                        <i class="far fa-bookmark"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="row justify-content-center">
+                        <div class="card" style="width: 16rem;">
+                            <img class="card-img-top" src="images/courses/course-javascript.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h6 class="card-title text-primary">Getting Started with JavaScript</h6>
+                                <p class="card-text">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <i class="far fa-clock"></i>
+                                    </div>
+                                    <div class="col-4 pr-0 text-left">
+                                        3h 34m
+                                    </div>
+                                    <div class="col-6 pl-0 text-left">
+                                        Beginner
+                                    </div>
+                                </div>
+                                </p>
+                                <p class="card-text">
+                                <div class="float-left new-price">$300</div>
+                                <div class="float-left ml-2 old-price">$550</div>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-3">
+                                        <div class="rounded-circle sm-img-teacher"
+                                            style="background-image: url(images/teacher/ted_hawkins.jpg);">
+                                        </div>
+                                    </div>
+                                    <div class="col-7 pl-2">
+                                        Ted Hawkins
+                                    </div>
+                                    <div class="col-2">
+                                        <i class="far fa-bookmark"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-------Div Popular---------------------------------------------------------------------------->
+        <div class="container mt-5" id="popular-div" style="display: none">
+            <div class="row">
+                <div class="col-6">
+                    <h2>Most Popular<h2>
+                </div>
+                <div class="col-6 text-right align-self-center">
+                    <a href="courses-list.html" class="text-primary">See all courses...</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3" id="card-popular-1" style="display: none">
+                    <div class="row justify-content-center">
+                        <div class="card" style="width: 16rem;">
+                            <img class="card-img-top" id="img-cover-popular-1" src="" alt="Card image cap">
+                            <div class="card-body">
+                                <h6 class="card-title text-primary" id="coursename-popular-1"></h6>
+                                <p class="card-text">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <i class="far fa-clock"></i>
+                                    </div>
+                                    <div class="col-4 pr-0 text-left" id="duration-popular-1">
+
+                                    </div>
+                                    <div class="col-6 pl-0 text-left" id="level-popular-1">
+
+                                    </div>
+                                </div>
+                                </p>
+                                <p class="card-text">
+                                <div class="float-left new-price" id="discountprice-popular-1"></div>
+                                <div class="float-left ml-2 old-price" id="price-popular-1"></div>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-3">
+                                        <div class="rounded-circle sm-img-teacher" id="teacherphoto-popular-1">
+                                        </div>
+                                    </div>
+                                    <div class="col-7 pl-2" id="teachername-popular-1">
+
+                                    </div>
+                                    <div class="col-2">
+                                        <i class="far fa-bookmark"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3" id="card-popular-2" style="display: none">
+                    <div class="row justify-content-center">
+                        <div class="card" style="width: 16rem;">
+                            <img class="card-img-top" id="img-cover-popular-2" src="" alt="Card image cap">
+                            <div class="card-body">
+                                <h6 class="card-title text-primary" id="coursename-popular-2"></h6>
+                                <p class="card-text">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <i class="far fa-clock"></i>
+                                    </div>
+                                    <div class="col-4 pr-0 text-left" id="duration-popular-2">
+
+                                    </div>
+                                    <div class="col-6 pl-0 text-left" id="level-popular-2">
+
+                                    </div>
+                                </div>
+                                </p>
+                                <p class="card-text">
+                                <div class="float-left new-price" id="discountprice-popular-2"></div>
+                                <div class="float-left ml-2 old-price" id="price-popular-2"></div>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-3">
+                                        <div class="rounded-circle sm-img-teacher" id="teacherphoto-popular-2">
+                                        </div>
+                                    </div>
+                                    <div class="col-7 pl-2" id="teachername-popular-2">
+
+                                    </div>
+                                    <div class="col-2">
+                                        <i class="far fa-bookmark"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3" id="card-popular-3" style="display: none">
+                    <div class="row justify-content-center">
+                        <div class="card" style="width: 16rem;">
+                            <img class="card-img-top" id="img-cover-popular-3" src="" alt="Card image cap">
+                            <div class="card-body">
+                                <h6 class="card-title text-primary" id="coursename-popular-3"></h6>
+                                <p class="card-text">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <i class="far fa-clock"></i>
+                                    </div>
+                                    <div class="col-4 pr-0 text-left" id="duration-popular-3">
+
+                                    </div>
+                                    <div class="col-6 pl-0 text-left" id="level-popular-3">
+
+                                    </div>
+                                </div>
+                                </p>
+                                <p class="card-text">
+                                <div class="float-left new-price" id="discountprice-popular-3"></div>
+                                <div class="float-left ml-2 old-price" id="price-popular-3"></div>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-3">
+                                        <div class="rounded-circle sm-img-teacher" id="teacherphoto-popular-3">
+                                        </div>
+                                    </div>
+                                    <div class="col-7 pl-2" id="teachername-popular-3">
+
+                                    </div>
+                                    <div class="col-2">
+                                        <i class="far fa-bookmark"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3" id="card-popular-4" style="display: none">
+                    <div class="row justify-content-center">
+                        <div class="card" style="width: 16rem;">
+                            <img class="card-img-top" id="img-cover-popular-4" src="" alt="Card image cap">
+                            <div class="card-body">
+                                <h6 class="card-title text-primary" id="coursename-popular-4"></h6>
+                                <p class="card-text">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <i class="far fa-clock"></i>
+                                    </div>
+                                    <div class="col-4 pr-0 text-left" id="duration-popular-4">
+
+                                    </div>
+                                    <div class="col-6 pl-0 text-left" id="level-popular-4">
+
+                                    </div>
+                                </div>
+                                </p>
+                                <p class="card-text">
+                                <div class="float-left new-price" id="discountprice-popular-4"></div>
+                                <div class="float-left ml-2 old-price" id="price-popular-4"></div>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-3">
+                                        <div class="rounded-circle sm-img-teacher" id="teacherphoto-popular-4">
+                                        </div>
+                                    </div>
+                                    <div class="col-7 pl-2" id="teachername-popular-4">
+
+                                    </div>
+                                    <div class="col-2">
+                                        <i class="far fa-bookmark"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-------Div Trending---------------------------------------------------------------------------->
+        <div class="container mt-5" id="trending-div" style="display: none">
+            <div class="row">
+                <div class="col-6">
+                    <h2>Trending<h2>
+                </div>
+                <div class="col-6 text-right align-self-center">
+                    <a href="courses-list.html" class="text-primary">See all courses...</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3" id="card-treding-1" style="display: none">
+                    <div class="row justify-content-center">
+                        <div class="card" style="width: 16rem;">
+                            <img class="card-img-top" id="img-cover-trending-1" src="" alt="Card image cap">
+                            <div class="card-body">
+                                <h6 class="card-title text-primary" id="coursename-trending-1"></h6>
+                                <p class="card-text">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <i class="far fa-clock"></i>
+                                    </div>
+                                    <div class="col-4 pr-0 text-left" id="duration-trending-1">
+
+                                    </div>
+                                    <div class="col-6 pl-0 text-left" id="level-trending-1">
+
+                                    </div>
+                                </div>
+                                </p>
+                                <p class="card-text">
+                                <div class="float-left new-price" id="discountprice-trending-1"></div>
+                                <div class="float-left ml-2 old-price" id="price-trending-1"></div>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-3">
+                                        <div class="rounded-circle sm-img-teacher" id="teacherphoto-trending-1">
+                                        </div>
+                                    </div>
+                                    <div class="col-7 pl-2" id="teachername-trending-1">
+
+                                    </div>
+                                    <div class="col-2">
+                                        <i class="far fa-bookmark"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3" id="card-treding-2" style="display: none">
+                    <div class="row justify-content-center">
+                        <div class="card" style="width: 16rem;">
+                            <img class="card-img-top" id="img-cover-trending-2" src="" alt="Card image cap">
+                            <div class="card-body">
+                                <h6 class="card-title text-primary" id="coursename-trending-2"></h6>
+                                <p class="card-text">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <i class="far fa-clock"></i>
+                                    </div>
+                                    <div class="col-4 pr-0 text-left" id="duration-trending-2">
+
+                                    </div>
+                                    <div class="col-6 pl-0 text-left" id="level-trending-2">
+
+                                    </div>
+                                </div>
+                                </p>
+                                <p class="card-text">
+                                <div class="float-left new-price" id="discountprice-trending-2"></div>
+                                <div class="float-left ml-2 old-price" id="price-trending-2"></div>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-3">
+                                        <div class="rounded-circle sm-img-teacher" id="teacherphoto-trending-2">
+                                        </div>
+                                    </div>
+                                    <div class="col-7 pl-2" id="teachername-trending-2">
+
+                                    </div>
+                                    <div class="col-2">
+                                        <i class="far fa-bookmark"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3" id="card-treding-3" style="display: none">
+                    <div class="row justify-content-center">
+                        <div class="card" style="width: 16rem;">
+                            <img class="card-img-top" id="img-cover-trending-3" src="" alt="Card image cap">
+                            <div class="card-body">
+                                <h6 class="card-title text-primary" id="coursename-trending-3"></h6>
+                                <p class="card-text">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <i class="far fa-clock"></i>
+                                    </div>
+                                    <div class="col-4 pr-0 text-left" id="duration-trending-3">
+
+                                    </div>
+                                    <div class="col-6 pl-0 text-left" id="level-trending-3">
+
+                                    </div>
+                                </div>
+                                </p>
+                                <p class="card-text">
+                                <div class="float-left new-price" id="discountprice-trending-3"></div>
+                                <div class="float-left ml-2 old-price" id="price-trending-3"></div>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-3">
+                                        <div class="rounded-circle sm-img-teacher" id="teacherphoto-trending-3">
+                                        </div>
+                                    </div>
+                                    <div class="col-7 pl-2" id="teachername-trending-3">
+
+                                    </div>
+                                    <div class="col-2">
+                                        <i class="far fa-bookmark"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3" id="card-treding-4" style="display: none">
+                    <div class="row justify-content-center">
+                        <div class="card" style="width: 16rem;">
+                            <img class="card-img-top" id="img-cover-trending-4" src="" alt="Card image cap">
+                            <div class="card-body">
+                                <h6 class="card-title text-primary" id="coursename-trending-4"></h6>
+                                <p class="card-text">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <i class="far fa-clock"></i>
+                                    </div>
+                                    <div class="col-4 pr-0 text-left" id="duration-trending-4">
+
+                                    </div>
+                                    <div class="col-6 pl-0 text-left" id="level-trending-4">
+
+                                    </div>
+                                </div>
+                                </p>
+                                <p class="card-text">
+                                <div class="float-left new-price" id="discountprice-trending-4"></div>
+                                <div class="float-left ml-2 old-price" id="price-trending-4"></div>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-3">
+                                        <div class="rounded-circle sm-img-teacher" id="teacherphoto-trending-4">
+                                        </div>
+                                    </div>
+                                    <div class="col-7 pl-2" id="teachername-trending-4">
+
+                                    </div>
+                                    <div class="col-2">
+                                        <i class="far fa-bookmark"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Footer -->
+            <div id="footer-div">
+                <div class="row pt-5 pb-3">
+                    <div class="col-6 text-center">
+                        <i class="far fa-copyright"></i>
+                        2021 Ionic Course365. All Rights Reserved.
+                    </div>
+                    <div class="col-6 text-right">
+                        <a class="ml-5" href="#">Privacy</a></li>
+                        <a class="ml-5" href="#">Terms</a></li>
+                        <a class="ml-5" href="#">Feedback</a></li>
+                        <a class="ml-5" href="#">Support</a></li>
+                    </div>
+                </div>
+            </div>
+
+</body>
+
+</html>
