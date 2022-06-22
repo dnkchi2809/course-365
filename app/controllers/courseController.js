@@ -75,7 +75,9 @@ const createCourse = (req, res) => {
         level: bodyRequest.level,
         coverImage: bodyRequest.coverImage,
         teacherName: bodyRequest.teacherName,
-        teacherPhoto: bodyRequest.teacherPhoto
+        teacherPhoto: bodyRequest.teacherPhoto,
+        isPopular: bodyRequest.isPopular,
+        isTrending: bodyRequest.isTrending
     }
 
     //truyền vào csdl
@@ -89,7 +91,7 @@ const createCourse = (req, res) => {
         else {
             res.status(201).json({
                 status: "Success 201 : Create course success",
-                data: data
+                courses: data
             })
         }
     });
@@ -108,7 +110,7 @@ const getAllCourse = (req, res) => {
         else {
             res.status(201).json({
                 status: "Success 200: Get All Course",
-                data: data
+                courses: data
             })
         }
     })
@@ -128,7 +130,7 @@ const getCourseById = (req, res) => {
         else {
             res.status(201).json({
                 status: "Success 200 : Find Course by courseID = " + paramCourseId,
-                data: data
+                courses: data
             })
         }
     })
@@ -160,7 +162,9 @@ const updateCourseById = (req, res) => {
         level: bodyRequest.level,
         coverImage: bodyRequest.coverImage,
         teacherName: bodyRequest.teacherName,
-        teacherPhoto: bodyRequest.teacherPhoto
+        teacherPhoto: bodyRequest.teacherPhoto,
+        isPopular: bodyRequest.isPopular,
+        isTrending: bodyRequest.isTrending
     }
 
     //truyền vào csdl
@@ -174,7 +178,7 @@ const updateCourseById = (req, res) => {
         else {
             res.status(201).json({
                 status: "Success 200 : Update course success",
-                data: data
+                courses: data
             })
         }
     });
@@ -194,7 +198,7 @@ const deleteCourseById = (req, res) => {
         else {
             res.status(201).json({
                 status: "Success 200 : Delete Course by courseID = " + paramCourseId,
-                data: data
+                courses: data
             })
         }
     })

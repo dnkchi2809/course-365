@@ -2,6 +2,16 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
+const imageSchema = new mongoose.Schema({
+    name: String,
+    desc: String,
+    img:
+    {
+        data: Buffer,
+        contentType: String
+    }
+});
+
 const courseModel = new Schema({
     _id : {
         type: mongoose.Types.ObjectId
@@ -32,7 +42,7 @@ const courseModel = new Schema({
         required: true
     },
     coverImage : {
-        type: String,
+        type: imageSchema,
         required: true
     },
     teacherName:{
@@ -40,12 +50,12 @@ const courseModel = new Schema({
         required : true
     },
     teacherPhoto:{
-        type: String,
+        type: imageSchema,
         required : true
     },
     isPopular : {
         type : Boolean,
-        default : true
+        default : false
     },
     isTrending : {
         type : Boolean,
