@@ -2,16 +2,6 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-/*const imageSchema = new mongoose.Schema({
-    name: String,
-    desc: String,
-    img:
-    {
-        data: Buffer,
-        contentType: String
-    }
-});*/
-
 const courseModel = new Schema({
     _id : {
         type: mongoose.Types.ObjectId
@@ -41,11 +31,19 @@ const courseModel = new Schema({
         type : String,
         required: true
     },
+    coverImageName : {
+        type: String,
+        required: true
+    },
     coverImage : {
         type: String,
         required: true
     },
     teacherName:{
+        type: String,
+        required : true
+    },
+    teacherPhotoName:{
         type: String,
         required : true
     },

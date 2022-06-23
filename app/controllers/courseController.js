@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const createCourse = (req, res) => {
     //b1: thu thập dữ liệu
     let bodyRequest = req.body;
-    console.log(bodyRequest);
+    //console.log(bodyRequest);
 
     //b2: validate
     if (!bodyRequest.courseCode) {
@@ -73,8 +73,10 @@ const createCourse = (req, res) => {
         discountPrice: bodyRequest.discountPrice,
         duration: bodyRequest.duration,
         level: bodyRequest.level,
+        coverImageName: bodyRequest.coverImageName,
         coverImage: bodyRequest.coverImage,
         teacherName: bodyRequest.teacherName,
+        teacherPhotoName: bodyRequest.teacherPhotoName,
         teacherPhoto: bodyRequest.teacherPhoto,
         isPopular: bodyRequest.isPopular,
         isTrending: bodyRequest.isTrending
@@ -160,8 +162,10 @@ const updateCourseById = (req, res) => {
         discountPrice: bodyRequest.discountPrice,
         duration: bodyRequest.duration,
         level: bodyRequest.level,
+        coverImageName: bodyRequest.coverImageName,
         coverImage: bodyRequest.coverImage,
         teacherName: bodyRequest.teacherName,
+        teacherPhotoName: bodyRequest.teacherPhotoName,
         teacherPhoto: bodyRequest.teacherPhoto,
         isPopular: bodyRequest.isPopular,
         isTrending: bodyRequest.isTrending
