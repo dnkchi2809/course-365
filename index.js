@@ -4,11 +4,19 @@ const app = express();
 
 const mongoose = require("mongoose");
 
+const bodyParser = require("body-parser");
+
+//Models
 const courseModel = require("./app/models/courseModel");
 
+//Routers
 const router = require("./app/routes/couseRouter");
 
 const path = require("path");
+
+app.use(bodyParser.json({limit: '50mb'}));
+
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 app.use(express.json());
 

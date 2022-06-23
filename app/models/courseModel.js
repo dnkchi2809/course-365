@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const imageSchema = new mongoose.Schema({
+/*const imageSchema = new mongoose.Schema({
     name: String,
     desc: String,
     img:
@@ -10,7 +10,7 @@ const imageSchema = new mongoose.Schema({
         data: Buffer,
         contentType: String
     }
-});
+});*/
 
 const courseModel = new Schema({
     _id : {
@@ -42,7 +42,7 @@ const courseModel = new Schema({
         required: true
     },
     coverImage : {
-        type: imageSchema,
+        type: String,
         required: true
     },
     teacherName:{
@@ -50,7 +50,7 @@ const courseModel = new Schema({
         required : true
     },
     teacherPhoto:{
-        type: imageSchema,
+        type: String,
         required : true
     },
     isPopular : {
