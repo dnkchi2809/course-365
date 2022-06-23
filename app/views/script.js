@@ -114,8 +114,8 @@ var gCourse = {
     teacherName: "",
     teacherPhotoName: "",
     teacherPhoto: "",
-    isPopular: false,
-    isTrending: false
+    isPopular: "",
+    isTrending: ""
 }
 
 var gRowData = {};
@@ -471,8 +471,8 @@ function getDataNewCourse(paramCourseInput) {
     paramCourseInput.teacherName = $("#inp-create-teachername").val();
     paramCourseInput.teacherPhotoName = $("#inp-create-teacherphoto").val().replace(/C:\\fakepath\\/,"");
     paramCourseInput.teacherPhoto = $("#inp-create-teacherphoto").text();
-    paramCourseInput.isPopular = Boolean($("input[name=create-popular-check]:checked").val());
-    paramCourseInput.isTrending = Boolean($("input[name=create-trending-check]:checked").val());
+    paramCourseInput.isPopular = $("input[name=create-popular-check]:checked").val();
+    paramCourseInput.isTrending = $("input[name=create-trending-check]:checked").val();
 }
 
 //lấy thông tin từ modal edit course
@@ -489,8 +489,8 @@ function getDataEditCourse(paramCourseInput) {
     paramCourseInput.teacherName = $("#inp-edit-teachername").val();
     paramCourseInput.teacherPhotoName = $("#inp-edit-teacherphoto").val().replace(/C:\\fakepath\\/,"");
     paramCourseInput.teacherPhoto = $("#inp-edit-teacherphoto").text();
-    paramCourseInput.isPopular = Boolean($("input[name=edit-popular-check]:checked").val());
-    paramCourseInput.isTrending = Boolean($("input[name=edit-trending-check]:checked").val());
+    paramCourseInput.isPopular = $("input[name=edit-popular-check]:checked").val();
+    paramCourseInput.isTrending = $("input[name=edit-trending-check]:checked").val();
 }
 
 //tạo id autoincrement mới
@@ -653,21 +653,6 @@ function blankModalCreate() {
     $("input[name=create-popular-check]").prop('checked', false);;
     $("input[name=create-trending-check]").prop('checked', false);;
 }
-
-/*function blankModalEdit() {
-    $("#inp-edit-id").val("");
-    $("#inp-edit-coursecode").val("");
-    $("#inp-edit-coursename").val("");
-    $("#inp-edit-price").val("");
-    $("#inp-edit-discountprice").val("");
-    $("#inp-edit-duration").val("");
-    $("input[name=edit-level-check]").prop('checked', false);
-    $("#inp-edit-coverimage").val("");
-    $("#inp-edit-teachername").val("");
-    $("#inp-edit-teacherphoto").val("");
-    $("input[name=edit-popular-check]").prop('checked', false);
-    $("input[name=edit-trending-check]").prop('checked', false);
-}*/
 
 function getDataDelete(paramElement) {
     var vRow = $(paramElement).closest("tr");
