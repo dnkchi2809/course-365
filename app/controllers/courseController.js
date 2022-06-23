@@ -120,7 +120,7 @@ const getAllCourse = (req, res) => {
 
 const getCourseById = (req, res) => {
     let paramCourseId = req.params.courseId;
-    console.log(paramCourseId);
+    //console.log(paramCourseId);
 
     courseModel.findById(paramCourseId, (err, data) => {
         if (err) {
@@ -141,9 +141,9 @@ const getCourseById = (req, res) => {
 const updateCourseById = (req, res) => {
     //b1: thu thập dữ liệu
     let bodyRequest = req.body;
-    console.log(bodyRequest);
+    //console.log(bodyRequest);
     let paramCourseId = req.params.courseId;
-    console.log(paramCourseId);
+    //console.log(paramCourseId);
 
     //validate
     if(!mongoose.Types.ObjectId.isValid(paramCourseId)){
@@ -190,7 +190,7 @@ const updateCourseById = (req, res) => {
 
 const deleteCourseById = (req, res) => {
     let paramCourseId = req.params.courseId;
-    console.log(paramCourseId);
+    //console.log(paramCourseId);
 
     courseModel.findByIdAndDelete(paramCourseId, (err, data) => {
         if (err) {

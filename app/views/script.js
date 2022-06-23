@@ -118,9 +118,7 @@ var gCourse = {
     isTrending: false
 }
 
-var gCoverImageTmpPath = "";
-var gTeacherPhotoTmpPath = "";
-var gCourseID = ""
+var gRowData = {};
 
 //region 2: vùng sự kiện các btn
 $(document).on("click", "#add-btn", function () {
@@ -178,10 +176,18 @@ $(document).on("change", '#inp-create-teacherphoto', function (event) {
     }
 });
 
+$(document).on("click", '#inp-edit-coverimage', function (event) {
+    $("#inp-edit-coverimage").attr("type", "file")
+});
+
 $(document).on("change", '#inp-edit-coverimage', function (event) {
     if ($("#inp-edit-coverimage")[0].files[0]) {
         encodeImageFileAsURL($("#inp-edit-coverimage")[0].files[0], this)
     }
+});
+
+$(document).on("click", '#inp-edit-teacherphoto', function (event) {
+    $("#inp-edit-teacherphoto").attr("type", "file")
 });
 
 $(document).on("change", '#inp-edit-teacherphoto', function (event) {
@@ -330,7 +336,6 @@ function onBtnAddClick() {
 function onBtnConfirmAddClick() {
     //b1: get thông tin input
     getDataNewCourse(gCourse);
-    console.log(JSON.stringify(gCourse));
 
     //b2: validate
     var vCourseValid = validateCourse(gCourse);
@@ -362,13 +367,12 @@ function onBtnEditClick(paramElement) {
 function onBtnConfirmEditClick() {
     //b1: get thông tin input
     getDataEditCourse(gCourse);
-    console.log(gCourse);
 
     //b2: validate
-    var vValidEditData = updateEditData(gCourse);
+    var vValidEditData = updateEditData(gCourse, gRowData);
+
     //b3: display
     if (vValidEditData) {
-        console.log("Update")
         $.ajax({
             url: "/course/" + gCourse.id,
             method: "PUT",
@@ -376,11 +380,9 @@ function onBtnConfirmEditClick() {
             data: JSON.stringify(gCourse),
             success: function (gCoursesDB) {
                 alert("Edit success");
-                console.log("Reload Course List");
-                console.log(gCoursesDB.courses);
-                loadCourseList(gCoursesDB.courses);
                 $("#edit-course-modal").modal("hide");
-                blankModalEdit();
+                //blankModalEdit();
+                onPageCourseLoad();
             }
         })
 
@@ -464,14 +466,13 @@ function getDataNewCourse(paramCourseInput) {
     paramCourseInput.discountPrice = Number($("#inp-create-discountprice").val());
     paramCourseInput.duration = $("#inp-create-duration").val();
     paramCourseInput.level = $("input[name=create-level-check]:checked").val();
-    paramCourseInput.coverImageName = $("#inp-create-coverimage").val();
+    paramCourseInput.coverImageName = $("#inp-create-coverimage").val().replace(/C:\\fakepath\\/,"");
     paramCourseInput.coverImage = $("#inp-create-coverimage").text();
     paramCourseInput.teacherName = $("#inp-create-teachername").val();
-    paramCourseInput.teacherPhotoName = $("#inp-create-teacherphoto").val();
+    paramCourseInput.teacherPhotoName = $("#inp-create-teacherphoto").val().replace(/C:\\fakepath\\/,"");
     paramCourseInput.teacherPhoto = $("#inp-create-teacherphoto").text();
     paramCourseInput.isPopular = Boolean($("input[name=create-popular-check]:checked").val());
     paramCourseInput.isTrending = Boolean($("input[name=create-trending-check]:checked").val());
-    console.log(paramCourseInput)
 }
 
 //lấy thông tin từ modal edit course
@@ -479,17 +480,17 @@ function getDataEditCourse(paramCourseInput) {
     paramCourseInput.id = $("#inp-edit-id").val();
     paramCourseInput.courseCode = $("#inp-edit-coursecode").val();
     paramCourseInput.courseName = $("#inp-edit-coursename").val();
-    paramCourseInput.price = $("#inp-edit-price").val();
-    paramCourseInput.discountPrice = $("#inp-edit-discountprice").val();
+    paramCourseInput.price = Number($("#inp-edit-price").val());
+    paramCourseInput.discountPrice = Number($("#inp-edit-discountprice").val());
     paramCourseInput.duration = $("#inp-edit-duration").val();
     paramCourseInput.level = $("input[name=edit-level-check]:checked").val();
-    paramCourseInput.coverImageName = $("#inp-edit-coverimage").val();
+    paramCourseInput.coverImageName = $("#inp-edit-coverimage").val().replace(/C:\\fakepath\\/,"");
     paramCourseInput.coverImage = $("#inp-edit-coverimage").text();
     paramCourseInput.teacherName = $("#inp-edit-teachername").val();
-    paramCourseInput.teacherPhotoName = $("#inp-edit-teacherphoto").val();
+    paramCourseInput.teacherPhotoName = $("#inp-edit-teacherphoto").val().replace(/C:\\fakepath\\/,"");
     paramCourseInput.teacherPhoto = $("#inp-edit-teacherphoto").text();
-    paramCourseInput.isPopular = $("input[name=edit-popular-check]:checked").val();
-    paramCourseInput.isTrending = $("input[name=edit-trending-check]:checked").val();
+    paramCourseInput.isPopular = Boolean($("input[name=edit-popular-check]:checked").val());
+    paramCourseInput.isTrending = Boolean($("input[name=edit-trending-check]:checked").val());
 }
 
 //tạo id autoincrement mới
@@ -591,7 +592,7 @@ function displayDataToInput(paramElement) {
     var vRow = $(paramElement).closest("tr");
     var vTable = $("#course-table").DataTable();
     var vRowData = vTable.row(vRow).data();
-    console.log(vRowData);
+    gRowData = vRowData
 
     $("#inp-edit-id").val(vRowData._id);
     $("#inp-edit-coursecode").val(vRowData.courseCode);
@@ -605,9 +606,11 @@ function displayDataToInput(paramElement) {
             this.checked = true;
         }
     });
-    $("#inp-edit-coverimage").val(vRow.coverImageName);
+    $("#inp-edit-coverimage").attr("type", "text").val(vRowData.coverImageName)
+    $("#inp-edit-coverimage").text(vRowData.coverImage);
     $("#inp-edit-teachername").val(vRowData.teacherName);
-    $("#inp-edit-teacherphoto").val(vRow.teacherPhotoName);
+    $("#inp-edit-teacherphoto").attr("type", "text").val(vRowData.teacherPhotoName);
+    $("#inp-edit-teacherphoto").text(vRowData.teacherPhoto)
     $("input[name=edit-popular-check]").each(function () {
         var vPopular = $(this).val();
         if (String(vPopular) == String(vRowData.isPopular)) {
@@ -622,35 +625,18 @@ function displayDataToInput(paramElement) {
     });
 }
 
-function updateEditData(paramDataEdit) {
-    $.ajax({
-        url: "/course",
-        method: "GET",
-        success: function (gCourse) {
-            var paramDB = gCourse.courses;
-            for (var bElement of paramDB) {
-                if (paramDataEdit.id == bElement._id) {
-                    for (var bKey in paramDataEdit) {
-                        if (bKey !== "id") {
-                            if (paramDataEdit[bKey] !== "") {
-                                if (paramDataEdit[bKey] !== undefined) {
-                                    if (String(paramDataEdit[bKey]) !== String(bElement[bKey])) {
-                                        bElement[bKey] = paramDataEdit[bKey];
-                                        console.log("Update " + bKey);
-                                        return true;
-                                    }
-                                }
-                            }
-                            else {
-                                alert("Cannot replace " + bKey + " by blank");
-                                return false;
-                            }
-                        }
-                    }
-                }
+function updateEditData(paramDataEdit, paramOldData) {
+    for (var bElement in paramDataEdit) {
+        if (bElement !== "id") {
+            if (String(paramDataEdit[bElement]) !== String(paramOldData[bElement])) {
+                console.log("Update " + bElement);
+                return true;
             }
         }
-    })
+        
+    }
+    alert("Nothing change");
+    return false;
 }
 
 function blankModalCreate() {
@@ -668,7 +654,7 @@ function blankModalCreate() {
     $("input[name=create-trending-check]").prop('checked', false);;
 }
 
-function blankModalEdit() {
+/*function blankModalEdit() {
     $("#inp-edit-id").val("");
     $("#inp-edit-coursecode").val("");
     $("#inp-edit-coursename").val("");
@@ -681,13 +667,12 @@ function blankModalEdit() {
     $("#inp-edit-teacherphoto").val("");
     $("input[name=edit-popular-check]").prop('checked', false);
     $("input[name=edit-trending-check]").prop('checked', false);
-}
+}*/
 
 function getDataDelete(paramElement) {
     var vRow = $(paramElement).closest("tr");
     var vTable = $("#course-table").DataTable();
     var vRowData = vTable.row(vRow).data();
-    //console.log(vRowData);
     return vRowData._id;
 }
 
@@ -696,22 +681,14 @@ function deleteCourseByID(paramID) {
         url: "/course/" + paramID,
         method: "DELETE",
         success: function (gCoursesDB) {
-            /*for (var bElement of paramDB) {
-                    if (bElement.id == paramID) {
-                        var vPosition = paramDB.indexOf(bElement);
-                        paramDB.splice(vPosition, 1);
-                    }
-                }*/
+            return gCoursesDB.courses
         }
     })
 }
 
 function encodeImageFileAsURL(paramFileSelected, paramElement) {
-    console.log(paramFileSelected);
-    console.log(paramFileSelected.name);
     var reader = new FileReader();
     reader.onloadend = function () {
-        //console.log(reader.result);
         $(paramElement).text(reader.result)
     }
     reader.readAsDataURL(paramFileSelected);
