@@ -14,25 +14,26 @@ const router = require("./app/routes/couseRouter");
 
 const path = require("path");
 
-app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.json({ limit: '50mb' }));
 
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 app.use(express.json());
 
 app.use(express.urlencoded({
-    extended:true
+    extended: true
 }))
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 
-mongoose.connect("mongodb://localhost:27017/CRUD_Course365", (err) => {
-    if(err){
-        throw err;
-    }
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/CRUD_Course365", { useNewUrlParser: true, useUnifiedTopology: true }
+    , (err) => {
+        if (err) {
+            throw err;
+        }
 
-    console.log("Connect MongoDB CRUD_Course365 successfully")
-})
+        console.log("Connect MongoDB CRUD_Course365 successfully")
+    })
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname + "/app/views/index.html"))
